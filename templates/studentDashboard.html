@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <title>Online Proctor</title>
+    <!-- Preloader -->
+    <style>
+        @keyframes hidePreloader {
+            0% {
+                width: 100%;
+                height: 100%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        body>div.preloader {
+            position: fixed;
+            background: white;
+            width: 100%;
+            height: 100%;
+            z-index: 1071;
+            opacity: 0;
+            transition: opacity .5s ease;
+            overflow: hidden;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body:not(.loaded)>div.preloader {
+            opacity: 1;
+        }
+
+        body:not(.loaded) {
+            overflow: hidden;
+        }
+
+        body.loaded>div.preloader {
+            animation: hidePreloader .5s linear .5s forwards;
+        }
+        
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.querySelector('body').classList.add('loaded');
+            }, 300);
+        });
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="{{url_for('.static',filename='favicon.png')}}" type="image/png"><!-- Font Awesome -->
+    <link rel="stylesheet" href="{{url_for('.static',filename ='all.min.css')}}">
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="{{url_for('.static',filename='quick-website.css')}}" id="stylesheet">
+    <!-- Docs CSS - used only for demo -->
+    <link rel="stylesheet" href="{{url_for('.static',filename='docs.css')}}" id="stylesheet">
+</head>
+
+<body class="docs">
+    <!-- Nav -->
+    <header class="header" id="header-main">
+        <!-- Main navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg fixed-top navbar-shadow navbar-light bg-white border-bottom" id="navbar-main">
+            <div class="container-fluid justify-content-between">
+                <!-- User's navbar -->
+                <div class="navbar-user d-lg-none">
+                    <ul class="navbar-nav flex-row align-items-center">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main"><i data-feather="menu"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="../docs/index.html">
+                    <img alt="Image placeholder" src="{{url_for('.static',filename='dark5.png')}}" id="navbar-logo" >
+                    <sup class="text-muted text-xs text-uppercase">Student-Dashboard</sup>
+                </a>
+                <!-- Live preview -->
+                <ul class="navbar-nav flex-row align-items-center d-lg-none">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link nav-link-icon"><i data-feather="eye"></i></a>
+
+                    </li>
+                </ul>
+                <!-- Navbar nav -->
+                <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                    <!-- Right menu -->
+                    <ul class="navbar-nav align-items-center mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="../docs/getting-started/quick-start.html">{{email}}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/profile2" >Profile</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="/login4" class="btn btn-sm btn-primary ml-4 btn-icon d-none d-lg-inline-flex">
+                    <span class="btn-inner--icon"><i data-feather="chevron-left"></i></span>
+                    <span class="btn-inner--text">Logout</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+    <div class="container-fluid container-docs">
+        <!-- Sidenav -->
+     
+        <!-- Main content -->
+            <div class="col-xl-12 docs-content pb-5">
+                <!-- Docs title -->
+                <div class="docs-title">
+                    <h1>Student Name : {{name}} {{user}}</h1>
+                    <p class="lead mb-0">Welcome to your dashboard {{name}} {{user}} please check your RegNo: {{regno}} for changes contact your proctor.</p>
+                </div>
+                <section class="slice slice-lg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://i.ibb.co/ZRrLt08/Pik-Png-com-whatsapp-image-png-2504603.png" height = "60px" width ='60px'>
+                                            </div>
+                                        </div>
+                                        <h5 class="">Video Call App</h5>
+                                        <p class=" mt-2 bm-0">A conference in which participants in different locations are able to communicate with each other and help them communicate .</p>
+
+                                        <div class="mt-4">
+                                            <a href="/videochat" class="link-underline-warning">Click Here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://i.ibb.co/P49Tj3K/pngtree-image-upload-icon-photo-upload-icon-png-image-2047547.jpg
+                                                " height = "60px" width ='60px'>
+                                            </div>
+                                        </div>
+                                        <h5 class="">Image upload</h5>
+                                        <p class=" mt-2 mb-0">Image to transfer images from local or networked drives to a one of your CommonSpot Image Galleries.</p>
+
+                                        <div class="mt-4">
+                                            <a href="/upload_from" class="link-underline-warning">Click here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://i.ibb.co/n34zb4v/folder-red-video-icon.png" height = "60px" width ='60px'>
+                                            </div>
+                                        </div>
+                                        <h5 class=" ">Video upload</h5>
+                                        <p class=" mt-2 mb-0">Videos will look their best on every device, anywhere. Storage and privacy.Take control with links and can view.</p>
+
+                                        <div class="mt-4">
+                                            <a href="/upload_video_from" class="link-underline-warning">Click here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="slice slice-lg">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://i.ibb.co/68Dycgj/logo-gmail-png-gmail-icon-download-png-and-vector-1.png" height = "60px" width ='60px'>
+                                            </div>
+                                        </div>
+                                        <h5 class=" ">Mail app</h5>
+                                        <p class=" mt-2 mb-0">Mail is an email client developed by Microsoft The main function is sending and receiving email on time</p>
+
+                                        <div class="mt-4">
+                                            <a href="/home" class="link-underline-warning">Click here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://i.ibb.co/WzmFxyq/g-consultancy-logo.jpg" height = "60px" width ='72px'>
+                                            </div>
+                                        </div>
+                                        <h5 class="">Demo app</h5>
+                                        <p class=" mt-2 mb-0">A movement of part of the body,especially a hand & head express an idea or meaning."Waving your hands".</p>
+
+                                        <div class="mt-4">
+                                            <a href="/video_record" class="link-underline-warning">Click here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="card text-center hover-translate-y-n10 hover-shadow-lg">
+                                    <div class="px-5 pb-5 pt-5">
+                                        <div class="py-4">
+                                            <div class="icon text-warning icon-sm mx-auto">
+                                                <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-camera-512.png" height = "60px" width ='60px'>
+                                            </div>
+                                        </div>
+                                        <h5 class="">Capture Image</h5> 
+                                        <p class=" mt-2 mb-0">It's where they go when they have a question and truly want to speak to an individual at your organization.</p>
+
+                                                                                    <div class="mt-4">
+                                            <a href="/click" class="link-underline-warning">Click here</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>                      
+                </section>
+                        </div>
+            <div class="col-xl-3 docs-sidebar d-none d-xl-block">
+            </div>
+        </div>
+    </div>
+    
+               <!-- Footer -->
+               <div class="container pt-4">
+                <div class="row">
+                    <div class="col-lg-4 mb-5 mb-lg-0">
+                        <!-- Theme's logo -->
+                        <a href="index.html">
+                            <img alt="Image placeholder" src="{{url_for('.static',filename='dark5.png')}}" id="footer-logo" width="35%" height="55%">
+                        </a>
+                        <!-- Webpixels' mission -->
+                        <!-- Social -->
+                        <ul class="nav mt-4">
+                            <li class="nav-item">
+                                <a class="nav-link pl-0" href="https://dribbble.com/webpixels" target="_blank">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://github.com/webpixels" target="_blank">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.instagram.com/webpxs" target="_blank">
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="https://www.facebook.com/webpixels" target="_blank">
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 col-sm-4 ml-lg-auto mb-5 mb-lg-0">
+                        <ul class="list-unstyled">
+                         
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                        <ul class="list-unstyled">
+                        </ul>
+                    </div>
+                    <div class="col-lg-2 col-6 col-sm-4 mb-5 mb-lg-0">
+                        <ul class="list-unstyled">
+                        </ul>
+                    </div>
+                </div>
+                <hr class="divider divider-fade divider-dark my-4">
+                <div class="row align-items-center justify-content-md-between pb-4">
+                    <div class="col-md-6">
+                        <div class="copyright text-sm font-weight-bold text-center text-md-left">
+                            &copy; 2021 <a href="https://webpixels.io" class="font-weight-bold" target="_blank">Online Proctor</a>. All rights reserved
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="nav justify-content-center justify-content-md-end mt-3 mt-md-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Terms
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">
+                                    Privacy
+                                </a>
+                            </li>
+                        >
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Core JS  -->
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="assets/libs/feather-icons/dist/feather.min.js"></script>
+    <!-- Page JS -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC1oALsXLX-XEh2iYbE8tOjxsdFNHE39WM"></script>
+    <!-- Quick JS -->
+    <script src="assets/js/quick-website.js"></script>
+    <!-- Feather Icons -->
+    <script>
+        feather.replace({
+            'width': '1em',
+            'height': '1em'
+        })
+    </script>
+</body>
+
+</html>

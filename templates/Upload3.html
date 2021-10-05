@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<!-- Created By CodingNepal - www.codingnepalweb.com -->
+<html lang="en">
+<head>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+  *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #f3f3f3;
+  }
+  .drag-area{
+    border: 2px dashed #0390f1;
+    height: 500px;
+    width: 700px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .drag-area.active{
+    border: 2px solid #fff;
+  }
+  .drag-area .icon{
+    font-size: 100px;
+    color: #fff;
+  }
+  .drag-area header{
+    font-size: 30px;
+    font-weight: 500;
+    color: #fff;
+  }
+  .drag-area span{
+    font-size: 25px;
+    font-weight: 500;
+    color: #fff;
+    margin: 10px 0 15px 0;
+  }
+  .drag-area button{
+    padding: 10px 25px;
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    background: #0390f1;
+    color: #ffffff;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .drag-area img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+</style>
+<link rel="icon" href="{{url_for('.static',filename='favicon.png')}}" type="image/png"><!-- Font Awesome -->
+<link rel="stylesheet" href="{{url_for('.static',filename ='all.min.css')}}">
+<!-- Quick CSS -->
+<link rel="stylesheet" href="{{url_for('.static',filename='quick-website.css')}}" id="stylesheet">
+<!-- Docs CSS - used only for demo -->
+<link rel="stylesheet" href="{{url_for('.static',filename='docs.css')}}" id="stylesheet">
+</head>
+<body>
+  <header class="header" id="header-main">
+    <!-- Main navbar -->
+    <nav class="navbar navbar-main navbar-expand-lg fixed-top navbar-shadow navbar-light bg-white border-bottom" id="navbar-main">
+        <div class="container-fluid justify-content-between">
+            <!-- User's navbar -->
+            <div class="navbar-user d-lg-none">
+                <ul class="navbar-nav flex-row align-items-center">
+                    <li class="nav-item">
+                        <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main"><i data-feather="menu"></i></a>
+                    </li>
+                </ul>
+            </div>
+            <!-- Navbar brand -->
+            <a class="navbar-brand" href="../docs/index.html">
+                <img alt="Image placeholder" src="{{url_for('.static',filename='dark6.png')}}" id="navbar-logo" >
+                <sup class="text-muted text-xs text-uppercase">Upload Image</sup>
+            </a>
+            <!-- Live preview -->
+            <ul class="navbar-nav flex-row align-items-center d-lg-none">
+                <li class="nav-item">
+                    <a href="../index.html" class="nav-link nav-link-icon"><i data-feather="eye"></i></a>
+                </li>
+            </ul>
+            <!-- Navbar nav -->
+            <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                <!-- Right menu -->
+                <ul class="navbar-nav align-items-center mx-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../docs/getting-started/quick-start.html"> </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../docs/components/alerts.html"></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/webpixels/quick-website-ui-kit-demo/issues" target="_blank"></a>
+                    </li>
+                </ul>
+            </div>
+            <a href="/dashboard4" class="btn btn-sm btn-primary ml-4 btn-icon d-none d-lg-inline-flex">
+                <span class="btn-inner--icon"><i data-feather="chevron-left"></i></span>
+                <span class="btn-inner--text">Go-Back</span>
+            </a>
+        </div>
+    </nav>
+</header>
+  <div class="drag-area">
+    <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
+    <h3><p  style="color:black">Upload the Image file</p></h3>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+    <br></br>
+		<img src="{{ url_for('display_image', filename=filename) }}" width = "10" height = "10" >
+    <form form method = "POST" action="{{url_for('upload_image')}}" enctype="multipart/form-data" >
+    <button><input type="file" name="file" autocomplete="off" required></button>
+
+    <div>
+      <br>
+    </br>
+    </div>
+    <button  value="Submit">Upload</button>
+
+    <input type="file" hidden>
+  </div>
+
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="icon" href="{{url_for('.static',filename='favicon.png')}}" type="image/png"><!-- Font Awesome -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  width: 400px;
+  height: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: Sans-serif;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+
+</style>
+</head>
+<body>
+
+
+<div class="card">
+  <h2 style="text-align:center">Proctor Profile</h2>
+
+  <img src="https://i.ibb.co/St4c9Yc/User-icon-White-silhouette-on-blue-round-background-Vector-illustration.jpg" id="profilepic" height="80px" width="80px">
+  <h5 style="color:rgb(223, 57, 57);">please contact your admin to change your profile</h5>
+  <h1>{{ name }}</h1>
+  <p class="title">{{ email }}</p>
+  <p class="title">{{ phno }}</p>
+
+  <p>St. Joseph's College</p>
+  </div>
+</div>
+
+</body>
+</html>
